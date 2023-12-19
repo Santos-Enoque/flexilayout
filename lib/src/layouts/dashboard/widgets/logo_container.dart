@@ -6,17 +6,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 /// A widget that displays the default side menu logo.
 ///
-/// The `DefaultSideMenuLogo` widget is used to show the logo in the side menu of the admin panel.
+/// The `LogoContainer` widget is used to show the logo in the side menu of the admin panel.
 /// It consists of a `Logo` widget followed by the application name, 'Cytop'.
 ///
 /// Example usage:
 ///
 /// ```dart
-/// DefaultSideMenuLogo(),
+/// LogoContainer(),
 /// ```
-class DefaultSideMenuLogo extends StatelessWidget {
-  /// Creates a `DefaultSideMenuLogo` widget.
-  const DefaultSideMenuLogo({
+class LogoContainer extends StatelessWidget {
+  /// Creates a `LogoContainer` widget.
+  const LogoContainer({
     super.key,
     this.name = 'Flexilayout',
     this.icon = Icons.dashboard_customize_rounded,
@@ -24,6 +24,7 @@ class DefaultSideMenuLogo extends StatelessWidget {
 
   /// Default name
   final String name;
+
   /// Default logo
   final IconData icon;
 
@@ -43,7 +44,8 @@ class DefaultSideMenuLogo extends StatelessWidget {
             if (state.sideMenuStatus.isExpanded())
               Text(
                 name,
-                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 26),
+                style:
+                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 26),
               ),
           ],
         );

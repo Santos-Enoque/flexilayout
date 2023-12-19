@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 ///
 /// The `SideMenuSection` widget is used to group related menu items together
 ///  in a section within the side menu.
-/// It takes a `name`, `items`, and `priority` as parameters to define the 
+/// It takes a `name`, `items`, and `priority` as parameters to define the
 /// section's properties.
 ///
 /// Example usage:
@@ -36,18 +36,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class SideMenuSection extends StatelessWidget {
   /// Creates a `SideMenuSection` widget.
   ///
-  /// The `name` parameter is optional and specifies the name of the 
+  /// The `name` parameter is optional and specifies the name of the
   /// menu section.
-  /// The `items` parameter is required and defines the elements that are part 
+  /// The `items` parameter is required and defines the elements that are part
   /// of the section.
-  /// The `priority` parameter is required and determines the 
+  /// The `priority` parameter is required and determines the
   /// position of the section in the side menu.
   const SideMenuSection({
     super.key,
     this.name,
     required this.items,
     required this.priority,
-  })  : assert(priority > 0, 'Position starts from 1');
+  }) : assert(priority > 0, 'Position starts from 1');
 
   /// Name of the menu section
   ///
@@ -62,7 +62,7 @@ class SideMenuSection extends StatelessWidget {
   final int priority;
 
   /// Elements that are part of a given section of the side menu
-  final List<SideMenuItem> items;
+  final List<MenuItem> items;
 
   @override
   Widget build(BuildContext context) {

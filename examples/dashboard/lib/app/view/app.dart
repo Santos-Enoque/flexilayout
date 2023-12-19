@@ -1,4 +1,3 @@
-import 'package:dashboard/counter/counter.dart';
 import 'package:dashboard/l10n/l10n.dart';
 import 'package:flexilayout/flexilayout.dart';
 import 'package:flutter/material.dart';
@@ -12,13 +11,13 @@ class App extends StatelessWidget {
       theme: ThemeData.dark(),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: FlutterAdminPanel(
+      home: FlexiLayout(
         sections: [
           SideMenuSection(
             priority: 1,
             name: 'Section title',
             items: [
-              SideMenuItem(
+              MenuItem(
                 isExpandable: true,
                 subItems: [
                   SideMenuSubItem(
@@ -41,7 +40,7 @@ class App extends StatelessWidget {
                 name: 'Projects',
                 priority: 1,
               ),
-              SideMenuItem(
+              MenuItem(
                 icon: Icons.text_snippet,
                 name: 'Single Item',
                 priority: 2,

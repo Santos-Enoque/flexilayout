@@ -1,10 +1,20 @@
-# Flutter Admin Panel
+# FlexiLayout
 
 [![style: very good analysis][very_good_analysis_badge]][very_good_analysis_link]
 [![Powered by Mason](https://img.shields.io/endpoint?url=https%3A%2F%2Ftinyurl.com%2Fmason-badge)](https://github.com/felangel/mason)
 [![License: MIT][license_badge]][license_link]
 
-A Flutter modern admin panel that can easily added to your app
+FlexiLayout is an advanced Flutter package designed to empower developers to quickly assemble and deploy versatile, responsive user interfaces with ease. Tailored for both web and desktop applications, FlexiLayout offers an extensive range of customizable layouts and components, making it the ideal toolkit for creating intuitive and aesthetically pleasing UIs.
+
+## 🚀 Key Features
+
+- **📐 Prebuilt Layout Templates**: Speed up development with a variety of ready-to-use layouts, including adjustable pane designs and dashboard interfaces.
+- **📲 Responsive and Adaptive**: Ensure your application looks great on any device, with components that automatically adjust to different screen sizes.
+- **🖱️ Drag-and-Drop and Resizable Panes**: Create dynamic user experiences with adjustable and interactive layout elements.
+- **🔧 Modular and Customizable**: Enjoy the freedom of customization with modular components that can be tailored to fit your specific design needs.
+- **⚙️ Easy Integration**: Seamlessly integrate with existing Flutter projects, thanks to an intuitive and straightforward setup process.
+- **📚 Comprehensive Documentation**: Get up to speed quickly with detailed documentation, including usage examples and configuration guides.
+- **🌐 Open Source and Community-Driven**: Join a community of developers contributing to the evolution of FlexiLayout, ensuring it stays current with the latest trends and best practices in Flutter development.
 
 ## Installation 💻
 
@@ -14,7 +24,7 @@ Add `flexilayout` to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  flexilayout:
+  flexilayout: 0.0.1
 ```
 
 Install it:
@@ -25,9 +35,28 @@ flutter packages get
 
 ---
 
+## 📖 Example Usage
+
+Here's a quick glimpse at how you can use FlexiLayout in your project:
+
+```dart
+import 'package:flexilayout/flexilayout.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // Add example code
+  }
+}
+```
+
 ## Continuous Integration 🤖
 
-Flutter Admin Panel comes with a built-in [GitHub Actions workflow][github_actions_link] powered by [Very Good Workflows][very_good_workflows_link] but you can also add your preferred CI/CD solution.
+FlexiLayout comes with a built-in [GitHub Actions workflow][github_actions_link] powered by [Very Good Workflows][very_good_workflows_link] but you can also add your preferred CI/CD solution.
 
 Out of the box, on each pull request and push, the CI `formats`, `lints`, and `tests` the code. This ensures the code remains consistent and behaves correctly as you add functionality or make changes. The project uses [Very Good Analysis][very_good_analysis_link] for a strict set of analysis options used by our team. Code coverage is enforced using the [Very Good Workflows][very_good_coverage_link].
 
@@ -72,3 +101,11 @@ open coverage/index.html
 [very_good_ventures_link_light]: https://verygood.ventures#gh-light-mode-only
 [very_good_ventures_link_dark]: https://verygood.ventures#gh-dark-mode-only
 [very_good_workflows_link]: https://github.com/VeryGoodOpenSource/very_good_workflows
+
+## 💪 Contributing
+
+Contributions to FlexiLayout are welcome! Whether it's submitting bug reports, feature requests, or contributing code, your involvement significantly enhances the quality and functionality of the package.
+
+## 📜 License
+
+FlexiLayout is available under the MIT license. See the LICENSE file for more info.

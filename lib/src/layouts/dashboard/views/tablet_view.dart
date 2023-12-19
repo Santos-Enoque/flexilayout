@@ -1,12 +1,24 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, lines_longer_than_80_chars
 
-import 'package:flutter/material.dart';
 import 'package:flexilayout/flexilayout.dart';
 import 'package:flexilayout/src/layouts/dashboard/widgets/top_nav_bar.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+/// Represents the tablet view of the application.
+///
+/// The `TabletView` widget is used to display the tablet version of the application.
+/// It takes no additional parameters and renders the content specific to the tablet view.
+///
+/// Example usage:
+///
+/// ```dart
+/// TabletView(),
+/// ```
 class TabletView extends StatelessWidget {
+  /// Creates a `TabletView` widget.
   const TabletView({super.key});
+
 
   @override
   Widget build(BuildContext context) {

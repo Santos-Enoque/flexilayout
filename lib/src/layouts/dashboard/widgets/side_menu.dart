@@ -24,7 +24,7 @@ class AdminPanelSideMenu extends StatelessWidget {
                 padding: const EdgeInsets.all(12),
                 child: Row(
                   children: const [
-                    Expanded(child: DefaultSideMenuLogo()),
+                    Expanded(child: LogoContainer()),
                   ],
                 ),
               ),

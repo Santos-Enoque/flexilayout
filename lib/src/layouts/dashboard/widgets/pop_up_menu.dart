@@ -17,7 +17,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 ///   index: 0,
 /// ),
 class PopUpMenu extends StatelessWidget {
-   /// Creates a `PopUpMenu` widget.
+  /// Creates a `PopUpMenu` widget.
   ///
   /// The `sideMenuItem` parameter is required and specifies the side menu item to be displayed in the pop-up menu.
   /// The `index` parameter is required and keeps track of the index of the `SideMenuItem` from the list of items.
@@ -25,22 +25,22 @@ class PopUpMenu extends StatelessWidget {
     super.key,
     required this.sideMenuItem,
     required this.index,
-  })  : id = sideMenuItem.id!;
+  }) : id = sideMenuItem.id!;
 
   /// The side menu item to to displayed in the pop up menu
-  final SideMenuItem sideMenuItem;
+  final MenuItem sideMenuItem;
 
-  /// Keeps track of the index of the [SideMenuItem] from the list of items
+  /// Keeps track of the index of the [MenuItem] from the list of items
   ///
   /// This variable is used to position the pop up menu next to the respective
-  /// [SideMenuItem]
+  /// [MenuItem]
   final int index;
 
   /// Unique identifier used to identify the [PopUpMenu]
   ///
-  /// We assign it the value of the  [SideMenuItem] absolute position (which is
+  /// We assign it the value of the  [MenuItem] absolute position (which is
   /// unique as well) and it is used to associate [PopUpMenu] with it's
-  /// respoective [SideMenuItem]
+  /// respoective [MenuItem]
   final String id;
 
   @override
@@ -87,21 +87,20 @@ class PopUpMenu extends StatelessWidget {
 /// ),
 /// ```
 class PopUpSideMenuItemElement extends StatelessWidget {
-
   /// Creates a `PopUpSideMenuItemElement` widget.
   ///
   /// The `element` parameter is required and specifies the side menu sub-item to be displayed.
   PopUpSideMenuItemElement({
     super.key,
     required this.element,
-  })  : sideMenuItemElementAbsolutePosition = element.id!;
+  }) : sideMenuItemElementAbsolutePosition = element.id!;
 
   /// The [SideMenuSubItem] to be displayed
   final SideMenuSubItem element;
 
   /// A unique identifier used to tell where the element is
   /// positioned within the side menu. Since this variable is unique we use it
-  /// to keep track [SideMenuItem]'s being hovered and so on
+  /// to keep track [MenuItem]'s being hovered and so on
   final String sideMenuItemElementAbsolutePosition;
 
   @override

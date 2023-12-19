@@ -12,7 +12,7 @@ class AdminPanelRepository {
   final _decimalPlacesPrecision = 7;
   final List<SideMenuSection> sideMenuSections;
 
-  List<SideMenuItem> getSideMenuItems() {
+  List<MenuItem> getSideMenuItems() {
     return sideMenuSections.expand((section) => section.items).toList();
   }
 
@@ -30,7 +30,7 @@ class AdminPanelRepository {
 
   /// Return a [List] of the id's of all items that have associated pages
   ///
-  /// This is required because expandable [SideMenuItem] objects do not have
+  /// This is required because expandable [MenuItem] objects do not have
   /// pages associated with then. In other words, when we click on an expandable
   /// item it expands and reveals it's child elements, but it does not display
   /// a new page.

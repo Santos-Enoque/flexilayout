@@ -33,7 +33,7 @@ class AdminPanelState extends Equatable {
   /// collapsed respectivelly
   final SideMenuStatus sideMenuStatus;
   final List<SideMenuSection> sideMenuSections;
-  final List<SideMenuItem> sideMenuItems;
+  final List<MenuItem> sideMenuItems;
   final List<String> idsOfItemsWithPages;
   final String sideMenuItemBeingHovered;
 
@@ -52,7 +52,7 @@ class AdminPanelState extends Equatable {
   AdminPanelState copyWith({
     SideMenuStatus? sideMenuStatus,
     List<SideMenuSection>? sideMenuSections,
-    List<SideMenuItem>? sideMenuItems,
+    List<MenuItem>? sideMenuItems,
     List<Widget>? pages,
     List<String>? idsOfItemsWithPages,
     String? sideMenuItemBeingHovered,

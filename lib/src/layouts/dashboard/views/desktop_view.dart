@@ -1,11 +1,22 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, lines_longer_than_80_chars
 
-import 'package:flutter/material.dart';
 import 'package:flexilayout/flexilayout.dart';
 import 'package:flexilayout/src/layouts/dashboard/widgets/top_nav_bar.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+/// Represents the desktop view of the application.
+///
+/// The `DesktopView` widget is used to display the desktop version of the application.
+/// It takes no additional parameters and renders the content specific to the desktop view.
+///
+/// Example usage:
+///
+/// ```dart
+/// DesktopView(),
+/// ```
 class DesktopView extends StatelessWidget {
+  /// Creates a `DesktopView` widget.
   const DesktopView({super.key});
 
   @override
@@ -34,8 +45,8 @@ class DesktopView extends StatelessWidget {
                                   child: state.pages[state.idsOfItemsWithPages
                                       .indexOf(state.sideMenuActiveItem)],
                                 ),
-                        )),
-                  )
+                        ),),
+                  ),
                 ],
               ),
               AnimatedPositioned(
@@ -70,7 +81,7 @@ class DesktopView extends StatelessWidget {
                       return Container();
                     }
                   }),
-                )
+                ),
             ],
           );
         },

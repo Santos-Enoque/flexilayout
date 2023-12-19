@@ -6,9 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 /// Represents a side menu item in the dashboard layout.
-class SideMenuItem extends StatefulWidget {
-  /// Creates a new [SideMenuItem] instance.
-  SideMenuItem({
+class MenuItem extends StatefulWidget {
+  /// Creates a new [MenuItem] instance.
+  MenuItem({
     super.key,
     required this.icon,
     required this.name,
@@ -26,43 +26,43 @@ class SideMenuItem extends StatefulWidget {
           'Expandable items cannot have a page property, and non-expandable items must have page property',
         );
 
-  /// Icon of the [SideMenuItem].
+  /// Icon of the [MenuItem].
   final IconData icon;
 
-  /// Priority of the [SideMenuItem] within the [SideMenuSection].
+  /// Priority of the [MenuItem] within the [SideMenuSection].
   ///
   /// The lower the priority value, the higher the position of the item
   /// within the [SideMenuSection]. This value should be unique and start from 1.
   final int priority;
 
-  /// Indicates whether the [SideMenuItem] is expandable or not.
+  /// Indicates whether the [MenuItem] is expandable or not.
   ///
-  /// If set to true, a list of [SideMenuItem] must be provided.
+  /// If set to true, a list of [MenuItem] must be provided.
   final bool isExpandable;
 
-  /// Name of the [SideMenuItem].
+  /// Name of the [MenuItem].
   final String name;
 
-  /// The sub-items that are displayed when the [SideMenuItem] is expanded.
+  /// The sub-items that are displayed when the [MenuItem] is expanded.
   final List<SideMenuSubItem>? subItems;
 
-  /// A unique identifier for each [SideMenuItem].
+  /// A unique identifier for each [MenuItem].
   ///
   /// This variable will be used to keep track of items being hovered/active
   /// items. This value is automatically set in the business logic.
   String? id;
 
   /// The widget that is displayed on the content section when the
-  /// [SideMenuItem] is clicked.
+  /// [MenuItem] is clicked.
   ///
   /// Expandable sideMenuItems do not have an associated page widget.
   final Widget? page;
 
   @override
-  State<SideMenuItem> createState() => _SideMenuItemState();
+  State<MenuItem> createState() => _MenuItemState();
 }
 
-class _SideMenuItemState extends State<SideMenuItem> {
+class _MenuItemState extends State<MenuItem> {
   String? itemId; // A unique identifier for each [SideMenuItem].
   bool _isItemExpanded = false;
 
@@ -161,11 +161,11 @@ class _SideMenuItemState extends State<SideMenuItem> {
 /// the [isActiveOrHovered] property. It also handles hover events and updates
 /// the state of the [AdminPanelBloc] accordingly.
 ///
-/// The [itemId] is a unique identifier for each [SideMenuItem] and is used to
+/// The [itemId] is a unique identifier for each [MenuItem] and is used to
 /// keep track of items being hovered/active.
 ///
-/// The [isExpanded] property is used to determine whether the [SideMenuItem] is
-/// collapsed or expanded. When an expandable [SideMenuItem] is expanded, its
+/// The [isExpanded] property is used to determine whether the [MenuItem] is
+/// collapsed or expanded. When an expandable [MenuItem] is expanded, its
 /// onHover event is not registered to avoid affecting the onHover event of its
 /// child elements.
 ///
@@ -194,15 +194,15 @@ class ItemContainer extends StatelessWidget {
   /// Checks if the item is active or being hovered.
   final bool isActiveOrHovered;
 
-  /// A unique identifier for each [SideMenuItem].
+  /// A unique identifier for each [MenuItem].
   ///
   /// This variable will be used to keep track of items being hovered/active
   /// items.
   final String itemId;
 
-  /// Checks whether the [SideMenuItem] is collapsed or expanded.
+  /// Checks whether the [MenuItem] is collapsed or expanded.
   ///
-  /// This variable is used to make sure that when an expandable [SideMenuItem]
+  /// This variable is used to make sure that when an expandable [MenuItem]
   /// is expanded, its onHover event is not registered so that it does not
   /// affect the onHover event of its child elements.
   final bool isExpanded;

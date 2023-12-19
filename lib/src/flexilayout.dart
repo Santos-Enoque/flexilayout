@@ -1,19 +1,18 @@
-// ignore_for_file: public_member_api_docs
+// ignore_for_file: public_member_api_docs, must_be_immutable
 
-import 'package:flutter/material.dart';
 import 'package:flexilayout/flexilayout.dart';
-import 'package:flexilayout/src/layouts/dashboard/repositories/admin_panel_repository.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 /// {@template flexilayout}
 /// A Flutter modern admin panel that can easily added to your app
 /// {@endtemplate}
-class FlutterAdminPanel extends StatelessWidget {
-  FlutterAdminPanel(
-      {super.key,
-      required this.sections,
-      this.sideMenuStatus = SideMenuStatus.expanded})
-      : assert(sections.isNotEmpty, 'Sections cannot be empty');
+class FlexiLayout extends StatelessWidget {
+  FlexiLayout({
+    super.key,
+    required this.sections,
+    this.sideMenuStatus = SideMenuStatus.expanded,
+  }) : assert(sections.isNotEmpty, 'Sections cannot be empty');
 
   final List<SideMenuSection> sections;
   SideMenuStatus sideMenuStatus;
@@ -26,7 +25,7 @@ class FlutterAdminPanel extends StatelessWidget {
         sideMenuStatus: sideMenuStatus,
       )..add(AdminPanelSideMenuInitialized()),
       child: const Responsive(
-        mobile: MobideView(),
+        mobile: MobileView(),
         desktop: DesktopView(),
         tablet: TabletView(),
       ),
