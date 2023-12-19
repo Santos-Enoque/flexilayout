@@ -1,6 +1,6 @@
 name: flexilayout
 description: A flexible layout framework for Flutter applications, suitable for web and desktop.
-version: 0.0.1-dev.1
+version: 0.1.0-beta
 homepage: https://github.com/Santos-Enoque/flexilayout
 publish_to: 
 
