@@ -22,7 +22,7 @@ class DesktopView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocBuilder<AdminPanelBloc, DashboardState>(
+      body: BlocBuilder<DashboardBloc, DashboardState>(
         builder: (context, state) {
           return Stack(
             children: [
@@ -33,7 +33,7 @@ class DesktopView extends StatelessWidget {
                     child: MouseRegion(
                       onEnter: (event) {
                         context
-                            .read<AdminPanelBloc>()
+                            .read<DashboardBloc>()
                             .add(DashboardCursorEnteredContententSection());
                       },
                       child: Scaffold(
@@ -57,7 +57,7 @@ class DesktopView extends StatelessWidget {
                 child: InkWell(
                   onTap: () {
                     context
-                        .read<AdminPanelBloc>()
+                        .read<DashboardBloc>()
                         .add(DashboardSideMenuTogglePressed());
                   },
                   child: const Icon(

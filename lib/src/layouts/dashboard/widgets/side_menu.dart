@@ -9,7 +9,7 @@ class AdminPanelSideMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AdminPanelBloc, DashboardState>(
+    return BlocBuilder<DashboardBloc, DashboardState>(
       buildWhen: (previous, current) =>
           previous.sideMenuStatus != current.sideMenuStatus,
       builder: (context, state) {
@@ -31,7 +31,7 @@ class AdminPanelSideMenu extends StatelessWidget {
               Expanded(
                 child: ListView(
                   children:
-                      context.read<AdminPanelBloc>().state.sideMenuSections,
+                      context.read<DashboardBloc>().state.sideMenuSections,
                 ),
               )
             ],

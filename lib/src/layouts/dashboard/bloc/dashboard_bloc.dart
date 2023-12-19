@@ -1,3 +1,5 @@
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
@@ -8,10 +10,20 @@ import 'package:flutter/material.dart';
 part 'dashboard_event.dart';
 part 'dashboard_state.dart';
 
-class AdminPanelBloc extends Bloc<DashbaordEvent, DashboardState> {
-  AdminPanelBloc({
+/// Represents the business logic component for the dashboard.
+///
+/// The `DashboardBloc` class is responsible for managing the state and handling events related to the dashboard.
+/// It extends the `Bloc` class from the `flutter_bloc` package and defines the initial state and event handlers.
+class DashboardBloc extends Bloc<DashbaordEvent, DashboardState> {
+  /// Creates a `DashboardBloc` instance.
+  ///
+  /// The `DashboardBloc` constructor requires the following parameters:
+  ///
+  /// - `sideMenuStatus`: The initial status of the side menu.
+  /// - `repository`: An instance of the `AdminPanelRepository` that provides data and operations for the dashboard.
+  DashboardBloc({
     required SideMenuStatus sideMenuStatus,
-    required AdminPanelRepository repository,
+    required DashboardRepository repository,
   })  : _repository = repository,
         super(
           DashboardState(
@@ -39,7 +51,7 @@ class AdminPanelBloc extends Bloc<DashbaordEvent, DashboardState> {
     );
   }
 
-  final AdminPanelRepository _repository;
+  final DashboardRepository _repository;
 
   void _onAdminPanelSideMenuInitialized(
     DashboardSideMenuInitialized event,

@@ -1,1 +1,1 @@
-export 'admin_panel_repository.dart';
+export 'dashboard_repository.dart';

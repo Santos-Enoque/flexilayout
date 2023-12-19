@@ -66,7 +66,7 @@ class SideMenuSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AdminPanelBloc, DashboardState>(
+    return BlocBuilder<DashboardBloc, DashboardState>(
       builder: (context, state) {
         return Column(
           mainAxisSize: MainAxisSize.min,

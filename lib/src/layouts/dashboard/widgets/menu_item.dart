@@ -74,7 +74,7 @@ class _MenuItemState extends State<MenuItem> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AdminPanelBloc, DashboardState>(
+    return BlocBuilder<DashboardBloc, DashboardState>(
       builder: (context, state) {
         bool isHoverOrActive() {
           return itemId! == state.sideMenuItemBeingHovered ||
@@ -95,7 +95,7 @@ class _MenuItemState extends State<MenuItem> {
                   isActiveOrHovered: isHoverOrActive(),
                   child: ListTile(
                     onTap: () {
-                      context.read<AdminPanelBloc>().add(
+                      context.read<DashboardBloc>().add(
                             DashboardSideMenuItemClicked(itemId!),
                           );
                     },
@@ -159,7 +159,7 @@ class _MenuItemState extends State<MenuItem> {
 ///
 /// This widget wraps the [child] widget and applies different styles based on
 /// the [isActiveOrHovered] property. It also handles hover events and updates
-/// the state of the [AdminPanelBloc] accordingly.
+/// the state of the [DashboardBloc] accordingly.
 ///
 /// The [itemId] is a unique identifier for each [MenuItem] and is used to
 /// keep track of items being hovered/active.
@@ -212,12 +212,12 @@ class ItemContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AdminPanelBloc, DashboardState>(
+    return BlocBuilder<DashboardBloc, DashboardState>(
       builder: (context, state) {
         return MouseRegion(
           onExit: (event) {
             if (!isExpanded) {
-              context.read<AdminPanelBloc>().add(
+              context.read<DashboardBloc>().add(
                     DashboardMenuItemHoverExited(
                       id: itemId,
                       isPopUpMenuItem: isPopUpMenuItem,
@@ -227,7 +227,7 @@ class ItemContainer extends StatelessWidget {
           },
           onEnter: (event) {
             if (!isExpanded) {
-              context.read<AdminPanelBloc>().add(
+              context.read<DashboardBloc>().add(
                     DashboardSideMenuItemHovered(
                       id: itemId,
                       isPopUpMenuItem: isPopUpMenuItem,
