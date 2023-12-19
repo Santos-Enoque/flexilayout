@@ -24,7 +24,7 @@ Add `flexilayout` to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  flexilayout: 0.0.1
+  flexilayout: 0.1.0-beta
 ```
 
 Install it:
