@@ -2,59 +2,65 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
 import 'package:flexilayout/flexilayout.dart';
-import 'package:flexilayout/src/layouts/dashboard/repositories/admin_panel_repository.dart';
+import 'package:flutter/material.dart';
 
-part 'admin_panel_event.dart';
-part 'admin_panel_state.dart';
+part 'dashboard_event.dart';
+part 'dashboard_state.dart';
 
-class AdminPanelBloc extends Bloc<AdminPanelEvent, AdminPanelState> {
+class AdminPanelBloc extends Bloc<AdminPanelEvent, DashboardState> {
   AdminPanelBloc({
     required SideMenuStatus sideMenuStatus,
     required AdminPanelRepository repository,
   })  : _repository = repository,
-        super(AdminPanelState(
-          pages: [],
-          idsOfItemsWithPages: [],
-          sideMenuItems: [],
-          sideMenuItemBeingHovered: '',
-          sideMenuActiveItem: '',
-          lastSideMenuItemHovered: '',
-          popUpSideMenuItemElementBeingHovered: '',
-          activePopUpSideMenuId: '',
-          sideMenuStatus: sideMenuStatus,
-          sideMenuSections: repository.sideMenuSections,
-        )) {
+        super(
+          DashboardState(
+            pages: const [],
+            idsOfItemsWithPages: const [],
+            sideMenuItems: const [],
+            sideMenuItemBeingHovered: '',
+            sideMenuActiveItem: '',
+            lastSideMenuItemHovered: '',
+            popUpSideMenuItemElementBeingHovered: '',
+            activePopUpSideMenuId: '',
+            sideMenuStatus: sideMenuStatus,
+            sideMenuSections: repository.sideMenuSections,
+          ),
+        ) {
     on<AdminPanelSideMenuTogglePressed>(_onAdminPanelSideMenuToggledPressed);
     on<AdminPanelSideMenuInitialized>(_onAdminPanelSideMenuInitialized);
     on<AdminPanelSideMenuItemCllicked>(_onAdminPanelSideMenuItemClicked);
     on<AdminPanelSideMenuItemHovered>(_onAdminPanelSideMenuItemHovered);
     on<AdminPanelSideMenuItemHoverExited>(
-        _onAdminPanelSideMenuItemHoveredExited);
+      _onAdminPanelSideMenuItemHoveredExited,
+    );
     on<AdminPanelCursorEnteredContententSection>(
-        _onAdminPanelCursorEnteredContentSection);
+      _onAdminPanelCursorEnteredContentSection,
+    );
   }
 
   final AdminPanelRepository _repository;
 
   void _onAdminPanelSideMenuInitialized(
-      AdminPanelSideMenuInitialized event, Emitter<AdminPanelState> emit) {
+    AdminPanelSideMenuInitialized event,
+    Emitter<DashboardState> emit,
+  ) {
     final positions = _repository.getIdOfItemsWithPages();
     final items = _repository.getSideMenuItems();
     final pages = _repository.getPages();
     emit(
       state.copyWith(
-          idsOfItemsWithPages: positions,
-          sideMenuActiveItem: positions[0],
-          sideMenuItems: items,
-          pages: pages),
+        idsOfItemsWithPages: positions,
+        sideMenuActiveItem: positions[0],
+        sideMenuItems: items,
+        pages: pages,
+      ),
     );
   }
 
   void _onAdminPanelSideMenuToggledPressed(
     AdminPanelSideMenuTogglePressed event,
-    Emitter<AdminPanelState> emit,
+    Emitter<DashboardState> emit,
   ) {
     state.sideMenuStatus == SideMenuStatus.expanded
         ? emit(state.copyWith(sideMenuStatus: SideMenuStatus.minimized))
@@ -63,29 +69,35 @@ class AdminPanelBloc extends Bloc<AdminPanelEvent, AdminPanelState> {
 
   void _onAdminPanelCursorEnteredContentSection(
     AdminPanelCursorEnteredContententSection event,
-    Emitter<AdminPanelState> emit,
+    Emitter<DashboardState> emit,
   ) {
-    emit(state.copyWith(
+    emit(
+      state.copyWith(
         sideMenuItemBeingHovered: '',
         activePopUpSideMenuId: '',
-        popUpSideMenuItemElementBeingHovered: ''));
+        popUpSideMenuItemElementBeingHovered: '',
+      ),
+    );
   }
 
   void _onAdminPanelSideMenuItemHovered(
     AdminPanelSideMenuItemHovered event,
-    Emitter<AdminPanelState> emit,
+    Emitter<DashboardState> emit,
   ) {
-    emit(state.copyWith(
+    emit(
+      state.copyWith(
         lastSideMenuItemHovered: event.id,
         sideMenuItemBeingHovered: event.id,
         // popUpSideMenuItemElementBeingHovered: event.id,
         activePopUpSideMenuId:
-            state.sideMenuStatus.isExpanded() ? '' : event.id));
+            state.sideMenuStatus.isExpanded() ? '' : event.id,
+      ),
+    );
   }
 
   void _onAdminPanelSideMenuItemHoveredExited(
     AdminPanelSideMenuItemHoverExited event,
-    Emitter<AdminPanelState> emit,
+    Emitter<DashboardState> emit,
   ) {
     if (state.sideMenuStatus.isExpanded()) {
       emit(state.copyWith(sideMenuItemBeingHovered: ''));
@@ -105,11 +117,13 @@ class AdminPanelBloc extends Bloc<AdminPanelEvent, AdminPanelState> {
 
   void _onAdminPanelSideMenuItemClicked(
     AdminPanelSideMenuItemCllicked event,
-    Emitter<AdminPanelState> emit,
+    Emitter<DashboardState> emit,
   ) {
     emit(
       state.copyWith(
-          sideMenuItemBeingHovered: '', sideMenuActiveItem: event.id),
+        sideMenuItemBeingHovered: '',
+        sideMenuActiveItem: event.id,
+      ),
     );
   }
 }

@@ -22,7 +22,7 @@ class DesktopView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocBuilder<AdminPanelBloc, AdminPanelState>(
+      body: BlocBuilder<AdminPanelBloc, DashboardState>(
         builder: (context, state) {
           return Stack(
             children: [
@@ -31,21 +31,22 @@ class DesktopView extends StatelessWidget {
                   const AdminPanelSideMenu(),
                   Expanded(
                     child: MouseRegion(
-                        onEnter: (event) {
-                          context
-                              .read<AdminPanelBloc>()
-                              .add(AdminPanelCursorEnteredContententSection());
-                        },
-                        child: Scaffold(
-                          appBar: topNavBar(context),
-                          body: state.pages.isEmpty
-                              ? Container()
-                              : Container(
-                                  padding: const EdgeInsets.all(20),
-                                  child: state.pages[state.idsOfItemsWithPages
-                                      .indexOf(state.sideMenuActiveItem)],
-                                ),
-                        ),),
+                      onEnter: (event) {
+                        context
+                            .read<AdminPanelBloc>()
+                            .add(AdminPanelCursorEnteredContententSection());
+                      },
+                      child: Scaffold(
+                        appBar: topNavBar(context),
+                        body: state.pages.isEmpty
+                            ? Container()
+                            : Container(
+                                padding: const EdgeInsets.all(20),
+                                child: state.pages[state.idsOfItemsWithPages
+                                    .indexOf(state.sideMenuActiveItem)],
+                              ),
+                      ),
+                    ),
                   ),
                 ],
               ),

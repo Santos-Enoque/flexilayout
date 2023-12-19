@@ -9,7 +9,7 @@ class AdminPanelSideMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AdminPanelBloc, AdminPanelState>(
+    return BlocBuilder<AdminPanelBloc, DashboardState>(
       buildWhen: (previous, current) =>
           previous.sideMenuStatus != current.sideMenuStatus,
       builder: (context, state) {

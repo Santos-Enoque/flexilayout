@@ -74,7 +74,7 @@ class _MenuItemState extends State<MenuItem> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AdminPanelBloc, AdminPanelState>(
+    return BlocBuilder<AdminPanelBloc, DashboardState>(
       builder: (context, state) {
         bool isHoverOrActive() {
           return itemId! == state.sideMenuItemBeingHovered ||
@@ -212,7 +212,7 @@ class ItemContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AdminPanelBloc, AdminPanelState>(
+    return BlocBuilder<AdminPanelBloc, DashboardState>(
       builder: (context, state) {
         return MouseRegion(
           onExit: (event) {

@@ -1,4 +1,4 @@
-part of 'admin_panel_bloc.dart';
+part of 'dashboard_bloc.dart';
 
 abstract class AdminPanelEvent extends Equatable {
   const AdminPanelEvent();

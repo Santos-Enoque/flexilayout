@@ -19,11 +19,10 @@ class TabletView extends StatelessWidget {
   /// Creates a `TabletView` widget.
   const TabletView({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocBuilder<AdminPanelBloc, AdminPanelState>(
+      body: BlocBuilder<AdminPanelBloc, DashboardState>(
         builder: (context, state) {
           return Stack(
             children: [

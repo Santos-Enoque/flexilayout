@@ -30,7 +30,7 @@ class LogoContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AdminPanelBloc, AdminPanelState>(
+    return BlocBuilder<AdminPanelBloc, DashboardState>(
       builder: (context, state) {
         return Row(
           children: [
