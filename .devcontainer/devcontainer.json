@@ -1,0 +1,33 @@
+{
+  "name": "Flutter Dev Container",
+  "dockerFile": "Dockerfile",
+  "runArgs": [
+    "--privileged",
+    "--network=host",
+    "-p", "8080:8080" 
+  ],
+  "workspaceMount": "source=${localWorkspaceFolder},target=/${localWorkspaceFolderBasename},type=bind",
+  "workspaceFolder": "/${localWorkspaceFolderBasename}",
+  "mounts": [
+    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.bash_history,target=/home/vscode/.bash_history,type=bind"
+],
+"customizations": {
+	"vscode": {
+		"extensions": [
+			"formulahendry.auto-close-tag",
+			"formulahendry.auto-rename-tag",
+			"aaron-bond.better-comments",
+			"FelixAngelov.bloc",
+			"Dart-Code.dart-code",
+			"Dart-Code.flutter",
+			"gmlewis-vscode.flutter-stylizer",
+			"GitHub.copilot",
+			"GitHub.copilot-chat",
+			"hirantha.json-to-dart",
+			"esbenp.prettier-vscode",
+			"jeroen-meijer.pubspec-assist",
+			"vscodevim.vim"
+		]
+	}
+}
+}

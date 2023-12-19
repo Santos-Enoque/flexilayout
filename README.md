@@ -10,11 +10,11 @@ A Flutter modern admin panel that can easily added to your app
 
 **❗ In order to start using Flutter Admin Panel you must have the [Flutter SDK][flutter_install_link] installed on your machine.**
 
-Add `flutter_admin_panel` to your `pubspec.yaml`:
+Add `flexilayout` to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  flutter_admin_panel:
+  flexilayout:
 ```
 
 Install it:
