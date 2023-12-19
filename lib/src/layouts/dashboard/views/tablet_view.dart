@@ -34,7 +34,7 @@ class TabletView extends StatelessWidget {
                         onEnter: (event) {
                           context
                               .read<AdminPanelBloc>()
-                              .add(AdminPanelCursorEnteredContententSection());
+                              .add(DashboardCursorEnteredContententSection());
                         },
                         child: Scaffold(
                           appBar: topNavBar(context),
@@ -54,7 +54,7 @@ class TabletView extends StatelessWidget {
                   onTap: () {
                     context
                         .read<AdminPanelBloc>()
-                        .add(AdminPanelSideMenuTogglePressed());
+                        .add(DashboardSideMenuTogglePressed());
                   },
                   child: const Icon(
                     Icons.menu,

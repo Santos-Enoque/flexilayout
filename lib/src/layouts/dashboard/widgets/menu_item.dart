@@ -96,7 +96,7 @@ class _MenuItemState extends State<MenuItem> {
                   child: ListTile(
                     onTap: () {
                       context.read<AdminPanelBloc>().add(
-                            AdminPanelSideMenuItemCllicked(itemId!),
+                            DashboardSideMenuItemClicked(itemId!),
                           );
                     },
                     leading: Icon(
@@ -218,7 +218,7 @@ class ItemContainer extends StatelessWidget {
           onExit: (event) {
             if (!isExpanded) {
               context.read<AdminPanelBloc>().add(
-                    AdminPanelSideMenuItemHoverExited(
+                    DashboardMenuItemHoverExited(
                       id: itemId,
                       isPopUpMenuItem: isPopUpMenuItem,
                     ),
@@ -228,7 +228,7 @@ class ItemContainer extends StatelessWidget {
           onEnter: (event) {
             if (!isExpanded) {
               context.read<AdminPanelBloc>().add(
-                    AdminPanelSideMenuItemHovered(
+                    DashboardSideMenuItemHovered(
                       id: itemId,
                       isPopUpMenuItem: isPopUpMenuItem,
                     ),

@@ -71,7 +71,7 @@ class SideMenuSubItem extends StatelessWidget {
           child: ListTile(
             onTap: () {
               context.read<AdminPanelBloc>().add(
-                    AdminPanelSideMenuItemCllicked(id!),
+                    DashboardSideMenuItemClicked(id!),
                   );
             },
             title: Text(

@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 part 'dashboard_event.dart';
 part 'dashboard_state.dart';
 
-class AdminPanelBloc extends Bloc<AdminPanelEvent, DashboardState> {
+class AdminPanelBloc extends Bloc<DashbaordEvent, DashboardState> {
   AdminPanelBloc({
     required SideMenuStatus sideMenuStatus,
     required AdminPanelRepository repository,
@@ -27,14 +27,14 @@ class AdminPanelBloc extends Bloc<AdminPanelEvent, DashboardState> {
             sideMenuSections: repository.sideMenuSections,
           ),
         ) {
-    on<AdminPanelSideMenuTogglePressed>(_onAdminPanelSideMenuToggledPressed);
-    on<AdminPanelSideMenuInitialized>(_onAdminPanelSideMenuInitialized);
-    on<AdminPanelSideMenuItemCllicked>(_onAdminPanelSideMenuItemClicked);
-    on<AdminPanelSideMenuItemHovered>(_onAdminPanelSideMenuItemHovered);
-    on<AdminPanelSideMenuItemHoverExited>(
+    on<DashboardSideMenuTogglePressed>(_onAdminPanelSideMenuToggledPressed);
+    on<DashboardSideMenuInitialized>(_onAdminPanelSideMenuInitialized);
+    on<DashboardSideMenuItemClicked>(_onAdminPanelSideMenuItemClicked);
+    on<DashboardSideMenuItemHovered>(_onAdminPanelSideMenuItemHovered);
+    on<DashboardMenuItemHoverExited>(
       _onAdminPanelSideMenuItemHoveredExited,
     );
-    on<AdminPanelCursorEnteredContententSection>(
+    on<DashboardCursorEnteredContententSection>(
       _onAdminPanelCursorEnteredContentSection,
     );
   }
@@ -42,7 +42,7 @@ class AdminPanelBloc extends Bloc<AdminPanelEvent, DashboardState> {
   final AdminPanelRepository _repository;
 
   void _onAdminPanelSideMenuInitialized(
-    AdminPanelSideMenuInitialized event,
+    DashboardSideMenuInitialized event,
     Emitter<DashboardState> emit,
   ) {
     final positions = _repository.getIdOfItemsWithPages();
@@ -59,7 +59,7 @@ class AdminPanelBloc extends Bloc<AdminPanelEvent, DashboardState> {
   }
 
   void _onAdminPanelSideMenuToggledPressed(
-    AdminPanelSideMenuTogglePressed event,
+    DashboardSideMenuTogglePressed event,
     Emitter<DashboardState> emit,
   ) {
     state.sideMenuStatus == SideMenuStatus.expanded
@@ -68,7 +68,7 @@ class AdminPanelBloc extends Bloc<AdminPanelEvent, DashboardState> {
   }
 
   void _onAdminPanelCursorEnteredContentSection(
-    AdminPanelCursorEnteredContententSection event,
+    DashboardCursorEnteredContententSection event,
     Emitter<DashboardState> emit,
   ) {
     emit(
@@ -81,7 +81,7 @@ class AdminPanelBloc extends Bloc<AdminPanelEvent, DashboardState> {
   }
 
   void _onAdminPanelSideMenuItemHovered(
-    AdminPanelSideMenuItemHovered event,
+    DashboardSideMenuItemHovered event,
     Emitter<DashboardState> emit,
   ) {
     emit(
@@ -96,7 +96,7 @@ class AdminPanelBloc extends Bloc<AdminPanelEvent, DashboardState> {
   }
 
   void _onAdminPanelSideMenuItemHoveredExited(
-    AdminPanelSideMenuItemHoverExited event,
+    DashboardMenuItemHoverExited event,
     Emitter<DashboardState> emit,
   ) {
     if (state.sideMenuStatus.isExpanded()) {
@@ -116,7 +116,7 @@ class AdminPanelBloc extends Bloc<AdminPanelEvent, DashboardState> {
   }
 
   void _onAdminPanelSideMenuItemClicked(
-    AdminPanelSideMenuItemCllicked event,
+    DashboardSideMenuItemClicked event,
     Emitter<DashboardState> emit,
   ) {
     emit(

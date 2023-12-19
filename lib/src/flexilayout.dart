@@ -23,7 +23,7 @@ class FlexiLayout extends StatelessWidget {
       create: (context) => AdminPanelBloc(
         repository: AdminPanelRepository(sideMenuSections: sections),
         sideMenuStatus: sideMenuStatus,
-      )..add(AdminPanelSideMenuInitialized()),
+      )..add(DashboardSideMenuInitialized()),
       child: const Responsive(
         mobile: MobileView(),
         desktop: DesktopView(),
