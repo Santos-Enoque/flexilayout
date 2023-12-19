@@ -28,22 +28,23 @@ class TabletView extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  const AdminPanelSideMenu(),
+                  const SideMenu(),
                   Expanded(
                     child: MouseRegion(
-                        onEnter: (event) {
-                          context
-                              .read<DashboardBloc>()
-                              .add(DashboardCursorEnteredContententSection());
-                        },
-                        child: Scaffold(
-                          appBar: topNavBar(context),
-                          body: state.pages.isEmpty
-                              ? Container()
-                              : state.pages[state.idsOfItemsWithPages
-                                  .indexOf(state.sideMenuActiveItem)],
-                        )),
-                  )
+                      onEnter: (event) {
+                        context
+                            .read<DashboardBloc>()
+                            .add(DashboardCursorEnteredContententSection());
+                      },
+                      child: Scaffold(
+                        appBar: topNavBar(context),
+                        body: state.pages.isEmpty
+                            ? Container()
+                            : state.pages[state.idsOfItemsWithPages
+                                .indexOf(state.sideMenuActiveItem)],
+                      ),
+                    ),
+                  ),
                 ],
               ),
               AnimatedPositioned(
@@ -78,7 +79,7 @@ class TabletView extends StatelessWidget {
                       return Container();
                     }
                   }),
-                )
+                ),
             ],
           );
         },

@@ -28,7 +28,7 @@ class DesktopView extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  const AdminPanelSideMenu(),
+                  const SideMenu(),
                   Expanded(
                     child: MouseRegion(
                       onEnter: (event) {
