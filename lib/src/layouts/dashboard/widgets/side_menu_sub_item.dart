@@ -57,7 +57,7 @@ class SideMenuSubItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AdminPanelBloc, AdminPanelState>(
+    return BlocBuilder<DashboardBloc, DashboardState>(
       builder: (context, state) {
         bool isHoverOrActive() {
           return id! == state.sideMenuItemBeingHovered ||
@@ -70,8 +70,8 @@ class SideMenuSubItem extends StatelessWidget {
           itemId: id!,
           child: ListTile(
             onTap: () {
-              context.read<AdminPanelBloc>().add(
-                    AdminPanelSideMenuItemCllicked(id!),
+              context.read<DashboardBloc>().add(
+                    DashboardSideMenuItemClicked(id!),
                   );
             },
             title: Text(

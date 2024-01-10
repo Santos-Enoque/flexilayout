@@ -19,11 +19,11 @@ class FlexiLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<AdminPanelBloc>(
-      create: (context) => AdminPanelBloc(
-        repository: AdminPanelRepository(sideMenuSections: sections),
+    return BlocProvider<DashboardBloc>(
+      create: (context) => DashboardBloc(
+        repository: DashboardRepository(sideMenuSections: sections),
         sideMenuStatus: sideMenuStatus,
-      )..add(AdminPanelSideMenuInitialized()),
+      )..add(DashboardSideMenuInitialized()),
       child: const Responsive(
         mobile: MobileView(),
         desktop: DesktopView(),

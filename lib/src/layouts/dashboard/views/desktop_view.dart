@@ -22,30 +22,31 @@ class DesktopView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocBuilder<AdminPanelBloc, AdminPanelState>(
+      body: BlocBuilder<DashboardBloc, DashboardState>(
         builder: (context, state) {
           return Stack(
             children: [
               Row(
                 children: [
-                  const AdminPanelSideMenu(),
+                  const SideMenu(),
                   Expanded(
                     child: MouseRegion(
-                        onEnter: (event) {
-                          context
-                              .read<AdminPanelBloc>()
-                              .add(AdminPanelCursorEnteredContententSection());
-                        },
-                        child: Scaffold(
-                          appBar: topNavBar(context),
-                          body: state.pages.isEmpty
-                              ? Container()
-                              : Container(
-                                  padding: const EdgeInsets.all(20),
-                                  child: state.pages[state.idsOfItemsWithPages
-                                      .indexOf(state.sideMenuActiveItem)],
-                                ),
-                        ),),
+                      onEnter: (event) {
+                        context
+                            .read<DashboardBloc>()
+                            .add(DashboardCursorEnteredContententSection());
+                      },
+                      child: Scaffold(
+                        appBar: topNavBar(context),
+                        body: state.pages.isEmpty
+                            ? Container()
+                            : Container(
+                                padding: const EdgeInsets.all(20),
+                                child: state.pages[state.idsOfItemsWithPages
+                                    .indexOf(state.sideMenuActiveItem)],
+                              ),
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -56,8 +57,8 @@ class DesktopView extends StatelessWidget {
                 child: InkWell(
                   onTap: () {
                     context
-                        .read<AdminPanelBloc>()
-                        .add(AdminPanelSideMenuTogglePressed());
+                        .read<DashboardBloc>()
+                        .add(DashboardSideMenuTogglePressed());
                   },
                   child: const Icon(
                     Icons.sort,

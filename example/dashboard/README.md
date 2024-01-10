@@ -31,6 +31,11 @@ $ flutter run --flavor staging --target lib/main_staging.dart
 $ flutter run --flavor production --target lib/main_production.dart
 ```
 
+```sh
+# if running on docker
+$ flutter run --flavor development --target lib/main_development.dart -d web-server --web-port 8080 --web-hostname 0.0.0.0
+```
+
 _\*Dashboard works on iOS, Android, Web, and Windows._
 
 ---

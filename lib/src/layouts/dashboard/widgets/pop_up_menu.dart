@@ -105,7 +105,7 @@ class PopUpSideMenuItemElement extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AdminPanelBloc, AdminPanelState>(
+    return BlocBuilder<DashboardBloc, DashboardState>(
       builder: (context, state) {
         bool isHoverOrActive() {
           return element.id! == state.popUpSideMenuItemElementBeingHovered;

@@ -1,15 +1,24 @@
-import 'package:flutter/material.dart';
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'package:flexilayout/flexilayout.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AdminPanelSideMenu extends StatelessWidget {
-  const AdminPanelSideMenu({
+/// Represents the side menu component.
+///
+/// The `SideMenu` class is a stateless widget that displays the side menu of the application.
+/// It provides a list of menu items and handles the selection of menu items.
+class SideMenu extends StatelessWidget {
+  /// Creates a `SideMenu` instance.
+  ///
+  /// The `SideMenu` constructor does not require any parameters.
+  const SideMenu({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AdminPanelBloc, AdminPanelState>(
+    return BlocBuilder<DashboardBloc, DashboardState>(
       buildWhen: (previous, current) =>
           previous.sideMenuStatus != current.sideMenuStatus,
       builder: (context, state) {
@@ -20,10 +29,10 @@ class AdminPanelSideMenu extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(12),
+              const Padding(
+                padding: EdgeInsets.all(12),
                 child: Row(
-                  children: const [
+                  children: [
                     Expanded(child: LogoContainer()),
                   ],
                 ),
@@ -31,9 +40,9 @@ class AdminPanelSideMenu extends StatelessWidget {
               Expanded(
                 child: ListView(
                   children:
-                      context.read<AdminPanelBloc>().state.sideMenuSections,
+                      context.read<DashboardBloc>().state.sideMenuSections,
                 ),
-              )
+              ),
             ],
           ),
         );

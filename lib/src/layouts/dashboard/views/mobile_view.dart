@@ -1,10 +1,10 @@
-
 // ignore_for_file: lines_longer_than_80_chars
 
 import 'package:flexilayout/flexilayout.dart';
 import 'package:flexilayout/src/layouts/dashboard/widgets/top_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 /// Represents the mobile view of the application.
 ///
 /// The `MobileView` widget is used to display the mobile version of the application.
@@ -21,7 +21,7 @@ class MobileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AdminPanelBloc, AdminPanelState>(
+    return BlocBuilder<DashboardBloc, DashboardState>(
       builder: (context, state) {
         return Scaffold(
           appBar: topNavBar(context),
