@@ -8,27 +8,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 /// A Flutter modern admin panel that can easily added to your app
 /// {@endtemplate}
 class FlexiLayout extends StatelessWidget {
-  FlexiLayout({
-    super.key,
-    required this.sections,
-    this.sideMenuStatus = SideMenuStatus.expanded,
-  }) : assert(sections.isNotEmpty, 'Sections cannot be empty');
+  const FlexiLayout({
+    super.key, required this.layout,
 
-  final List<SideMenuSection> sections;
-  SideMenuStatus sideMenuStatus;
+  });
+
+  final LayoutType layout;
+
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<DashboardBloc>(
-      create: (context) => DashboardBloc(
-        repository: DashboardRepository(sideMenuSections: sections),
-        sideMenuStatus: sideMenuStatus,
-      )..add(DashboardSideMenuInitialized()),
-      child: const Responsive(
-        mobile: MobileView(),
-        desktop: DesktopView(),
-        tablet: TabletView(),
-      ),
-    );
+    return layout as Widget;
   }
 }
