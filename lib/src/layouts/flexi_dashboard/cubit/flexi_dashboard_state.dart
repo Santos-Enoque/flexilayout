@@ -42,6 +42,7 @@ class FlexiDashboardState extends Equatable {
     required this.selectedItemId,
     required this.hoveredItemId,
     required this.sideMenuPosition,
+    this.isSideMenuAnimationRunning = false,
   });
 
   /// The status of the side menu.
@@ -61,6 +62,9 @@ class FlexiDashboardState extends Equatable {
 
   /// The ID of the currently hovered item.
   final String? hoveredItemId;
+  
+  /// The status of the side menu animation 
+  final bool isSideMenuAnimationRunning;
 
   /// The currently displayed page.
   Widget get currentPage => pageMap[selectedItemId] ?? defaultPage;

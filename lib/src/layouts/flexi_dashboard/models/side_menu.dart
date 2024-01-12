@@ -99,20 +99,36 @@ class SideMenu extends StatelessWidget {
               if (menuData?.sections != null)
                 for (final section in menuData!.sections!)
                   ExpansionTile(
-                    title: Text(section.title),
+                    leading: Icon(section.icon),
+                    title: Text(
+                      state.sideMenuStatus == SideMenuStatus.collapsed
+                          ? ''
+                          : section.title,
+                    ),
                     children: [
                       for (final item in section.items)
                         ListTile(
                           title: Text(item.name),
-                          onTap: () {},
+                          onTap: () {
+                            context
+                                .read<FlexiDashboardCubit>()
+                                .selectItem(item.id);
+                          },
                         ),
                     ],
                   ),
               if (menuData?.items != null)
                 for (final item in menuData!.items!)
                   ListTile(
-                    title: Text(item.name),
-                    onTap: () {},
+                    leading: Icon(item.icon),
+                    title: Text(
+                      state.sideMenuStatus == SideMenuStatus.collapsed
+                          ? ''
+                          : item.name,
+                    ),
+                    onTap: () {
+                      context.read<FlexiDashboardCubit>().selectItem(item.id);
+                    },
                   ),
             ],
           ),

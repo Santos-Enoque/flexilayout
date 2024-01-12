@@ -36,4 +36,8 @@ class FlexiDashboardCubit extends Cubit<FlexiDashboardState> {
       emit(state.copyWith(sideMenuStatus: SideMenuStatus.collapsed));
     }
   }
+
+  void selectItem(String itemId) {
+    emit(state.copyWith(selectedItemId: itemId));
+  }
 }
