@@ -1,4 +1,4 @@
-// ignore_for_file: lines_longer_than_80_chars
+// ignore_for_file: lines_longer_than_80_chars, require_trailing_commas
 
 import 'package:flexilayout/flexilayout.dart';
 import 'package:flutter/material.dart';
@@ -65,6 +65,7 @@ class SideMenu extends StatelessWidget {
   /// The duration of the animation when expanding or collapsing the side menu.
   final int animationDurationMilliseconds;
 
+  /// The background color of the side menu.
   final Color? backgroundColor;
 
   @override

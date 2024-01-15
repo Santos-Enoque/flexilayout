@@ -2,7 +2,6 @@
 
 import 'package:flexilayout/flexilayout.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 /// {@template flexilayout}
 /// A Flutter modern admin panel that can easily added to your app

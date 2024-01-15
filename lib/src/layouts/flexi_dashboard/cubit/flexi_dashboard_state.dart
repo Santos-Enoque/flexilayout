@@ -16,11 +16,17 @@ enum SideMenuStatus {
   unCollapsable,
 }
 
+/// Represents the position of the side menu.
+///
+/// The `SideMenuPosition` enum defines the possible positions of the side menu in relation to the top bar.
+/// It can be either positioned under the top bar or besides the top bar.
 enum SideMenuPosition {
+  /// The side menu is positioned under the top bar.
   underTopBar,
+
+  /// The side menu is positioned besides the top bar.
   besidesTopBar,
 }
-
 /// Represents the state of the FlexiDashboard.
 ///
 /// The `FlexiDashboardState` class is an immutable class that holds the state of the FlexiDashboard.

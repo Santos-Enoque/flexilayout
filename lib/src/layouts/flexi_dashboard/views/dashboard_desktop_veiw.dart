@@ -1,14 +1,26 @@
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'package:flexilayout/flexilayout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+/// Represents the desktop view of the dashboard.
+///
+/// The `DashboardDesktopView` class is a stateless widget that displays the desktop view of the dashboard.
+/// It consists of an app bar, a side menu, and the main content area.
 class DashboardDesktopView extends StatelessWidget {
+  /// Creates a `DashboardDesktopView` instance.
+  ///
+  /// The `DashboardDesktopView` constructor requires the following parameters:
+  ///
+  /// - `sideMenu`: The side menu widget to be displayed.
   const DashboardDesktopView({
     super.key,
     required this.sideMenu,
   });
-  final SideMenu sideMenu;
 
+  /// The side menu widget to be displayed.
+  final SideMenu sideMenu;
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<FlexiDashboardCubit, FlexiDashboardState>(
@@ -37,8 +49,8 @@ class DashboardDesktopView extends StatelessWidget {
             children: [
               sideMenu,
               Expanded(
-                  child:
-                      state.pageMap[state.selectedItemId] ?? state.defaultPage)
+                child: state.pageMap[state.selectedItemId] ?? state.defaultPage,
+              ),
             ],
           ),
         );
