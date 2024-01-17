@@ -7,7 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 ///
 /// The `Dashboard` class is a stateless widget that serves as the main
 ///  dashboard page.
-/// It provides a customizable side menu, side menu status, and side 
+/// It provides a customizable side menu, side menu status, and side
 /// menu position.
 class Dashboard extends StatelessWidget implements LayoutType {
   /// Creates a `Dashboard` instance.
@@ -15,22 +15,30 @@ class Dashboard extends StatelessWidget implements LayoutType {
   /// The `Dashboard` constructor requires the following parameters:
   ///
   /// - `sideMenu`: The side menu widget to be displayed.
-  /// - `sideMenuStatus`: The initial status of the side menu 
+  /// - `sideMenuStatus`: The initial status of the side menu
   /// (expanded or collapsed).
-  /// - `sideMenuPosition`: The position of the side menu in 
+  /// - `sideMenuPosition`: The position of the side menu in
   /// relation to the top bar.
   const Dashboard({
     super.key,
-    required this.sideMenu,
-    this.sideMenuStatus = SideMenuStatus.expanded,
+    required this.leftSideMenu,
+    required this.rightSideMenu,
+    this.rightSideMenuStatus = SideMenuStatus.expanded,
+    this.leftSideMenuStatus = SideMenuStatus.expanded,
     this.sideMenuPosition = SideMenuPosition.besidesTopBar,
   });
 
   /// The side menu widget to be displayed.
-  final SideMenu sideMenu;
+  final SideMenu leftSideMenu;
+
+  /// The side menu widget to be displayed.
+  final SideMenu rightSideMenu;
 
   /// The initial status of the side menu (expanded or collapsed).
-  final SideMenuStatus sideMenuStatus;
+  final SideMenuStatus rightSideMenuStatus;
+
+  /// The initial status of the side menu (expanded or collapsed).
+  final SideMenuStatus leftSideMenuStatus;
 
   /// The position of the side menu in relation to the top bar.
   final SideMenuPosition sideMenuPosition;
@@ -40,12 +48,14 @@ class Dashboard extends StatelessWidget implements LayoutType {
     return BlocProvider(
       create: (_) => FlexiDashboardCubit(
         sideMenuPosition: sideMenuPosition,
-        sideMenuStatus: sideMenuStatus,
-        menuData: sideMenu.menuData,
-        defaultPage: sideMenu.defaultPage,
+        rightSideMenuStatus: rightSideMenuStatus,
+        leftSideMenuStatus: leftSideMenuStatus,
+        menuData: leftSideMenu.menuData,
+        defaultPage: leftSideMenu.defaultPage,
       ),
       child: DashboardDesktopView(
-        sideMenu: sideMenu,
+        leftSideMenu: leftSideMenu,
+        rightSideMenu: rightSideMenu,
       ),
     );
   }

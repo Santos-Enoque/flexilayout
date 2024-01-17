@@ -14,7 +14,13 @@ class App extends StatelessWidget {
       supportedLocales: AppLocalizations.supportedLocales,
       home: FlexiLayout(
         layout: Dashboard(
-          sideMenu: SideMenu(
+          rightSideMenu: const SideMenu(
+            isLeft: false,
+            child: Center(
+              child: Text('Right Side Menu'),
+            ),
+          ),
+          leftSideMenu: SideMenu(
             menuData: MenuData(
               sections: [
                 MenuSection(

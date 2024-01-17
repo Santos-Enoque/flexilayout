@@ -13,20 +13,26 @@ class DashboardDesktopView extends StatelessWidget {
   ///
   /// The `DashboardDesktopView` constructor requires the following parameters:
   ///
-  /// - `sideMenu`: The side menu widget to be displayed.
+  /// - `leftSideMenu`: The side menu widget to be displayed on the left.
+  /// - `rightSideMenu`: The side menu widget to be displayed on the right.
   const DashboardDesktopView({
     super.key,
-    required this.sideMenu,
+    required this.leftSideMenu,
+    required this.rightSideMenu,
   });
 
   /// The side menu widget to be displayed.
-  final SideMenu sideMenu;
+  final SideMenu leftSideMenu;
+
+  /// The side menu widget to be displayed.
+  final SideMenu rightSideMenu;
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<FlexiDashboardCubit, FlexiDashboardState>(
       builder: (context, state) {
         final themeMode = Theme.of(context).brightness;
-        final leftSideMenuStatus = state.sideMenuStatus;
+        final leftSideMenuStatus = state.leftSideMenuStatus;
+        final rightSideMenuStatus = state.rightSideMenuStatus;
         return Scaffold(
           appBar: AppBar(
             actions: [
@@ -34,15 +40,17 @@ class DashboardDesktopView extends StatelessWidget {
                 iconPath:
                     _getIconPath(themeMode, leftSideMenuStatus, isLeft: true),
                 onPressed: () {
-                  context.read<FlexiDashboardCubit>().toggleSideMenu();
+                  context.read<FlexiDashboardCubit>().toggleLeftSideMenu();
                 },
               ),
               CustomIconButton(
-                iconPath: CustomIcons.rightSideMenuHideDark,
+                iconPath:
+                    _getIconPath(themeMode, rightSideMenuStatus, isLeft: false),
                 onPressed: () {
-                  context.read<FlexiDashboardCubit>().toggleSideMenu();
+                  context.read<FlexiDashboardCubit>().toggleRightSideMenu();
                 },
               ),
+              const SizedBox(width: 10),
             ],
             title: const Text('Flexilayout'),
             centerTitle: false,
@@ -59,10 +67,11 @@ class DashboardDesktopView extends StatelessWidget {
           ),
           body: Row(
             children: [
-              sideMenu,
+              leftSideMenu,
               Expanded(
                 child: state.pageMap[state.selectedItemId] ?? state.defaultPage,
               ),
+              rightSideMenu,
             ],
           ),
         );
@@ -70,8 +79,11 @@ class DashboardDesktopView extends StatelessWidget {
     );
   }
 
-  String _getIconPath(Brightness brightness, SideMenuStatus sideMenuStatus,
-      {required bool isLeft}) {
+  String _getIconPath(
+    Brightness brightness,
+    SideMenuStatus sideMenuStatus, {
+    required bool isLeft,
+  }) {
     if (isLeft) {
       return brightness == Brightness.light
           ? sideMenuStatus == SideMenuStatus.expanded

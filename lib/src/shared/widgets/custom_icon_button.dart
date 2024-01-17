@@ -30,7 +30,7 @@ class CustomIconButton extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
           shape: const CircleBorder(), // Makes the button circular
-          padding: const EdgeInsets.all(4) // Reduces padding to zero
+          padding: const EdgeInsets.all(4), // Reduces padding to zero
           // You can adjust other styling here if needed
           ),
       child: Image.asset(
