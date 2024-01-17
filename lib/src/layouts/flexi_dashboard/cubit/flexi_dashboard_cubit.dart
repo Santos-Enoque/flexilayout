@@ -1,4 +1,3 @@
-// ignore_for_file: lines_longer_than_80_chars
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
@@ -9,7 +8,8 @@ part 'flexi_dashboard_state.dart';
 
 /// Represents the Cubit for the FlexiDashboard state management.
 ///
-/// The `FlexiDashboardCubit` class extends the `Cubit` class and manages the state of the FlexiDashboard.
+/// The `FlexiDashboardCubit` class extends the `Cubit` class and 
+/// manages the state of the FlexiDashboard.
 /// It handles the side menu status, position, default page, and selected item.
 class FlexiDashboardCubit extends Cubit<FlexiDashboardState> {
   /// Creates a `FlexiDashboardCubit` instance.
@@ -17,9 +17,12 @@ class FlexiDashboardCubit extends Cubit<FlexiDashboardState> {
   /// The `FlexiDashboardCubit` constructor requires the following parameters:
   ///
   /// - `menuData`: The data for the menu, including sections and items.
-  /// - `defaultPage`: The default page widget to be displayed when no menu item is selected.
-  /// - `sideMenuStatus`: The initial status of the side menu (expanded or collapsed).
-  /// - `sideMenuPosition`: The position of the side menu in relation to the top bar.
+  /// - `defaultPage`: The default page widget to be displayed when 
+  /// no menu item is selected.
+  /// - `sideMenuStatus`: The initial status of the side menu 
+  /// (expanded or collapsed).
+  /// - `sideMenuPosition`: The position of the side menu in 
+  /// relation to the top bar.
   ///
   /// It also asserts that either `menuData` or `defaultPage` is provided.
   FlexiDashboardCubit({

@@ -1,10 +1,10 @@
-// ignore_for_file: lines_longer_than_80_chars
 
 part of 'flexi_dashboard_cubit.dart';
 
 /// Represents the status of the side menu.
 ///
-/// The `SideMenuStatus` enum defines three possible states for the side menu: expanded, collapsed, and unCollapsable.
+/// The `SideMenuStatus` enum defines three possible states for the side menu: 
+/// expanded, collapsed, and unCollapsable.
 enum SideMenuStatus {
   /// Represents the expanded state of the side menu.
   expanded,
@@ -12,13 +12,15 @@ enum SideMenuStatus {
   /// Represents the collapsed state of the side menu.
   collapsed,
 
-  /// Represents the unCollapsable state of the side menu. It basically means the side menu cannot be collapsed.
+  /// Represents the unCollapsable state of the side menu. 
+  /// It basically means the side menu cannot be collapsed.
   unCollapsable,
 }
 
 /// Represents the position of the side menu.
 ///
-/// The `SideMenuPosition` enum defines the possible positions of the side menu in relation to the top bar.
+/// The `SideMenuPosition` enum defines the possible 
+/// positions of the side menu in relation to the top bar.
 /// It can be either positioned under the top bar or besides the top bar.
 enum SideMenuPosition {
   /// The side menu is positioned under the top bar.
@@ -29,8 +31,10 @@ enum SideMenuPosition {
 }
 /// Represents the state of the FlexiDashboard.
 ///
-/// The `FlexiDashboardState` class is an immutable class that holds the state of the FlexiDashboard.
-/// It includes the status of the side menu, the default page, the page map, the selected item ID, and the hovered item ID.
+/// The `FlexiDashboardState` class is an immutable class that holds the 
+/// state of the FlexiDashboard.
+/// It includes the status of the side menu, the default page, 
+/// the page map, the selected item ID, and the hovered item ID.
 class FlexiDashboardState extends Equatable {
   /// Creates a `FlexiDashboardState` instance.
   ///
@@ -77,8 +81,10 @@ class FlexiDashboardState extends Equatable {
 
   /// Creates a copy of the `FlexiDashboardState` with updated values.
   ///
-  /// The `copyWith` method allows creating a new `FlexiDashboardState` instance with updated values.
-  /// It accepts optional parameters for each property and returns a new `FlexiDashboardState` instance with the updated values.
+  /// The `copyWith` method allows creating a new `FlexiDashboardState` 
+  /// instance with updated values.
+  /// It accepts optional parameters for each property and returns a new 
+  /// `FlexiDashboardState` instance with the updated values.
   FlexiDashboardState copyWith({
     SideMenuStatus? sideMenuStatus,
     Widget? defaultPage,
