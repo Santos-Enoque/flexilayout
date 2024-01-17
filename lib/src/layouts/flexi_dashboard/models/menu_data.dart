@@ -1,5 +1,3 @@
-// ignore_for_file: lines_longer_than_80_chars
-
 import 'package:flexilayout/flexilayout.dart';
 import 'package:flutter/material.dart';
 
@@ -32,10 +30,14 @@ class MenuData {
 
   /// Returns a map of item IDs to their corresponding pages.
   ///
-  /// The `pageMap` getter generates a map that maps each item ID to its corresponding page widget.
-  /// It iterates through the menu sections and their associated items, as well as the standalone menu items,
-  /// and adds them to the map with their respective IDs as keys and their page widgets as values.
-  /// The resulting map can be used to easily retrieve the page widget for a specific item ID.
+  /// The `pageMap` getter generates a map that maps each item ID 
+  /// to its corresponding page widget.
+  /// It iterates through the menu sections and their associated items, as 
+  /// well as the standalone menu items,
+  /// and adds them to the map with their respective IDs as keys and their 
+  /// page widgets as values.
+  /// The resulting map can be used to easily retrieve the page widget 
+  /// for a specific item ID.
   Map<String, Widget> get pageMap {
     final map = <String, Widget>{};
     

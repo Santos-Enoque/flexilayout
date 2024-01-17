@@ -9,11 +9,18 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData.dark(),
+      debugShowCheckedModeBanner: false,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       home: FlexiLayout(
         layout: Dashboard(
-          sideMenu: SideMenu(
+          rightSideMenu: const SideMenu(
+            isLeft: false,
+            child: Center(
+              child: Text('Right Side Menu'),
+            ),
+          ),
+          leftSideMenu: SideMenu(
             menuData: MenuData(
               sections: [
                 MenuSection(
