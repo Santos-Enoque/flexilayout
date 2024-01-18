@@ -22,48 +22,16 @@ class App extends StatelessWidget {
           ),
           leftSideMenu: SideMenu(
             menuData: MenuData(
-              sections: [
-                MenuSection(
-                  title: 'Section 1',
-                  items: [
-                    MenuItem(
-                      icon: Icons.home,
-                      name: 'Home',
-                      page: const Center(child: Text('Home')),
-                    ),
-                    MenuItem(
-                      icon: Icons.settings,
-                      name: 'Settings',
-                      page: const Center(child: Text('Settings')),
-                    ),
-                  ],
-                ),
-                MenuSection(
-                  title: 'Section 2',
-                  items: [
-                    MenuItem(
-                      icon: Icons.home,
-                      name: 'Home',
-                      page: const Center(child: Text('Home')),
-                    ),
-                    MenuItem(
-                      icon: Icons.settings,
-                      name: 'Settings',
-                      page: const Center(child: Text('Settings')),
-                    ),
-                  ],
-                ),
-              ],
               items: [
                 MenuItem(
-                  icon: Icons.home,
-                  name: 'Home',
-                  page: const Center(child: Text('Home')),
+                  icon: Icons.dashboard,
+                  name: 'Dashboard',
+                  page: const Center(child: Text('Dashboard')),
                 ),
                 MenuItem(
-                  icon: Icons.settings,
-                  name: 'Settings',
-                  page: const Center(child: Text('Settings')),
+                  icon: Icons.devices,
+                  name: 'Devices',
+                  page: const Center(child: Text('Devices')),
                 ),
               ],
             ),
